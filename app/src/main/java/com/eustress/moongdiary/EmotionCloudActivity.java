@@ -23,8 +23,12 @@ public class EmotionCloudActivity extends AppCompatActivity {
     private Button doneBtn;
     private com.google.android.material.textfield.TextInputEditText emotionEdt;
 
-    //선택된 cloud를 구분하기 위한 배열, 0은 선택x 1이 선택o
-    int[] clouds = { 0, 1, 0 }; //0번: yellow, 1번: orange, 2번: pink
+    //선택된 cloud의 index를 저장하는 변수
+    int selectedCloud = 1; //0번: yellow, 1번: orange, 2번: pink
+    int emotionValue;
+
+    DBHelper dbHelper;
+    private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,9 @@ public class EmotionCloudActivity extends AppCompatActivity {
         doneBtn = findViewById(R.id.doneBtn);
         emotionEdt = findViewById(R.id.emotionEdt);
 
+        dbHelper = new DBHelper(EmotionCloudActivity.this, 1);
+        textView2 = findViewById(R.id.textView2);
+
         //색상 구름 클릭하면 슬라이더 색 바꿔주는거
         yellowCloud.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,9 +55,7 @@ public class EmotionCloudActivity extends AppCompatActivity {
                 discreteSlider.setTrackActiveTintList(getResources().getColorStateList(R.color.yellow_cloud));
                 
                 //선택된 구름을 구분하기 위한 업데이트
-                clouds[0] = 1;
-                clouds[1] = 0;
-                clouds[2] = 0;
+                selectedCloud = 0;
             }
 
         });
@@ -63,9 +68,7 @@ public class EmotionCloudActivity extends AppCompatActivity {
                 discreteSlider.setTrackActiveTintList(getResources().getColorStateList(R.color.orange_cloud));
 
                 //선택된 구름을 구분하기 위한 업데이트
-                clouds[0] = 0;
-                clouds[1] = 1;
-                clouds[2] = 0;
+                selectedCloud = 1;
             }
 
         });
@@ -78,9 +81,7 @@ public class EmotionCloudActivity extends AppCompatActivity {
                 discreteSlider.setTrackActiveTintList(getResources().getColorStateList(R.color.pink_cloud));
 
                 //선택된 구름을 구분하기 위한 업데이트
-                clouds[0] = 0;
-                clouds[1] = 0;
-                clouds[2] = 1;
+                selectedCloud = 2;
             }
 
         });
@@ -90,14 +91,17 @@ public class EmotionCloudActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //다음 버튼 누르면 일어날 일 처리
+                //감정 농도 저장
+                emotionValue = (int)discreteSlider.getValue()*100;
+
                 //선택된 구름은 선택 불가능하게 하고
                 //선택된 구름 제외하고는 없애고
-                if(clouds[0]==1){
+                if(selectedCloud==0){
                     yellowCloud.setClickable(false);
                     orangeCloud.setVisibility(GONE);
                     pinkCloud.setVisibility(GONE);
                 }
-                else if(clouds[1]==1){
+                else if(selectedCloud==1){
                     orangeCloud.setClickable(false);
                     yellowCloud.setVisibility(GONE);
                     pinkCloud.setVisibility(GONE);
@@ -132,6 +136,12 @@ public class EmotionCloudActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(EmotionCloudActivity.this, emotionEdt.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+                dbHelper.insert(emotionEdt.getText().toString(), selectedCloud, emotionValue);
+
+                //String tmp = Integer.toString(2023)+ "-" +Integer.toString(04)+ "-" +Integer.toString(05);
+                textView2.setText(dbHelper.getDiary(2023,4,5));
+
+                //일의 자리인 경우에만 옆에 0을 붙여주면 되나?
             }
 
         });
