@@ -126,8 +126,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="580dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="504dp"
         android:text="안녕하세요"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>

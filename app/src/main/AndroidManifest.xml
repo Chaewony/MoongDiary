@@ -25,7 +25,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".EmotionCloudActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".MakeCloudActivity" android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CloudTodayActivity" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

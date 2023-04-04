@@ -13,4 +13,6 @@
     <color name="yellow_cloud">#FBE788</color>
     <color name="orange_cloud">#F1B47D</color>
     <color name="pink_cloud">#EBC1C3</color>
+    <color name="tab">#A28A75</color>
+    <color name="tab_text">#2F2923</color>
 </resources>

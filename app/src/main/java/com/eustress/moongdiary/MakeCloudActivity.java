@@ -2,6 +2,7 @@ package com.eustress.moongdiary;
 
 import static android.view.View.GONE;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.slider.Slider;
 
-public class EmotionCloudActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+public class MakeCloudActivity extends AppCompatActivity {
     private Slider discreteSlider;
     private ImageView yellowCloud;
     private ImageView orangeCloud;
@@ -30,6 +36,12 @@ public class EmotionCloudActivity extends AppCompatActivity {
     DBHelper dbHelper;
     private TextView textView2;
 
+    //현재 날짜 구하기
+    Date currentTime = Calendar.getInstance().getTime();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+    String date = dateFormat.format(currentTime);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +56,7 @@ public class EmotionCloudActivity extends AppCompatActivity {
         doneBtn = findViewById(R.id.doneBtn);
         emotionEdt = findViewById(R.id.emotionEdt);
 
-        dbHelper = new DBHelper(EmotionCloudActivity.this, 1);
+        dbHelper = new DBHelper(MakeCloudActivity.this, 1);
         textView2 = findViewById(R.id.textView2);
 
         //색상 구름 클릭하면 슬라이더 색 바꿔주는거
@@ -135,13 +147,16 @@ public class EmotionCloudActivity extends AppCompatActivity {
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EmotionCloudActivity.this, emotionEdt.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                dbHelper.insert(emotionEdt.getText().toString(), selectedCloud, emotionValue);
+                //Toast.makeText(MakeCloudActivity.this, emotionEdt.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+                dbHelper.insert(date, emotionEdt.getText().toString(), selectedCloud, emotionValue);
 
-                //String tmp = Integer.toString(2023)+ "-" +Integer.toString(04)+ "-" +Integer.toString(05);
-                textView2.setText(dbHelper.getDiary(2023,4,5));
+                //textView2.setText(dbHelper.getDiary(date));
 
-                //일의 자리인 경우에만 옆에 0을 붙여주면 되나?
+                //오늘의 구름 씬으로 넘어가기
+                Intent intent = new Intent(getApplication(), CloudTodayActivity.class);
+                intent.putExtra("date", date);
+                startActivity(intent);
+                finish();
             }
 
         });
