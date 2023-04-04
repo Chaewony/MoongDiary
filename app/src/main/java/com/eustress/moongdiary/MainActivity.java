@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CollapsibleCalendar collapsibleCalendar;
     private Button plusCloudBtn;
+    private ImageView moongGif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         collapsibleCalendar = findViewById(R.id.calendarView);
         plusCloudBtn = findViewById(R.id.cloudBtn);
+        moongGif = findViewById(R.id.moongGif);
+
+        Glide.with(this).load(R.drawable.gif_moong).into(moongGif);
 
         collapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
             @Override
