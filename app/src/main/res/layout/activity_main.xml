@@ -16,4 +16,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
 
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cloudBtn"
+        android:layout_width="72dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="592dp"
+        android:background="@drawable/btn_cloud"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
