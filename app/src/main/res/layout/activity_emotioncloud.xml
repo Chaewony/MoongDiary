@@ -1,6 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/discreteSlider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:stepSize="10.0"
+        android:value="20.0"
+        android:valueFrom="0.0"
+        android:valueTo="50.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:thumbColor="#FAF9F7"
+        app:thumbRadius="5dp"
+
+        app:tickColorActive="#F1B47D"
+        app:tickColorInactive="#FAF9F7"
+
+        app:trackColorActive="#F1B47D"
+        app:trackColorInactive="#D9D9D9"
+
+        app:trackHeight="20dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="132dp"
+        android:text="지금 감정이 어떻니?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <ImageView
+        android:id="@+id/yellowCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/yellow_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/orangeCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/orange_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <ImageView
+        android:id="@+id/pinkCloud"
+        android:layout_width="48dp"
+        android:layout_height="48.8dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/ic_cloud"
+        android:backgroundTint="@color/pink_cloud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="396dp"
+        android:background="@drawable/btn_basic"
+        android:text="다음"
+        android:textAllCaps="false"
+        android:textColor="#46413B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/doneBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="396dp"
+        android:background="@drawable/btn_basic"
+        android:enabled="false"
+        android:text="완료"
+        android:textAllCaps="false"
+        android:textColor="#46413B"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/emotionEdt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="252dp"
+        android:paddingVertical="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="201dp"
+        android:textColorHint="#6e706b"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:enabled="false"
+        android:visibility="invisible"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

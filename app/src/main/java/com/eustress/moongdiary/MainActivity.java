@@ -1,6 +1,5 @@
 package com.eustress.moongdiary;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,8 +13,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.shrikanthravi.collapsiblecalendarview.data.Day;
 import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar;
-
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { //버튼이 눌렸을 때
                 //감정 구름 씬으로 넘어가기
-                Intent intent = new Intent(getApplication(), EmotionCloud.class);
+                Intent intent = new Intent(getApplication(), EmotionCloudActivity.class);
                 startActivity(intent);
             }
         });

@@ -10,4 +10,7 @@
 
     <color name="button_brown">#BAAA9B</color>
     <color name="button_unpressed_brown">#EAE5E0</color>
+    <color name="yellow_cloud">#FBE788</color>
+    <color name="orange_cloud">#F1B47D</color>
+    <color name="pink_cloud">#EBC1C3</color>
 </resources>
