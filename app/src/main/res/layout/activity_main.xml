@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/moongGif"
         android:layout_width="220dp"
@@ -19,19 +20,42 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:primaryColor="@color/purple_200"
-        app:textColor="@android:color/white"
-        app:selectedItem_textColor="@color/teal_700"
-        app:todayItem_textColor="@android:color/white"
-        app:todayItem_background="@drawable/circle_white_stroke_background"
-        app:selectedItem_background="@drawable/circle_white_solid_background"
         app:buttonLeft_drawableTintColor="@android:color/white"
         app:buttonRight_drawableTintColor="@android:color/white"
+        app:eventColor="@color/yellow_cloud"
         app:expandIconColor="@android:color/white"
-        tools:ignore="MissingConstraints"
+        app:primaryColor="#FAF9F7"
+        app:selectedItem_background="@drawable/circle_white_solid_background"
+        app:selectedItem_textColor="@color/teal_700"
         app:showWeek="true"
-        app:eventColor="@color/yellow_cloud">
-    </com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
+        app:textColor="#46413B"
+        app:todayItem_background="@drawable/bg_today"
+        app:todayItem_textColor="@android:color/white"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:showTopBar="false"
+        ></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/toolbarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="년 월"
+            android:textSize="20dp">
+
+        </TextView>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cloudBtn"
