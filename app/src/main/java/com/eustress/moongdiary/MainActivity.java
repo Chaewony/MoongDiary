@@ -31,7 +31,19 @@ public class MainActivity extends AppCompatActivity {
 
         Glide.with(this).load(R.drawable.gif_moong).into(moongGif);
 
+        collapsibleCalendar.addEventTag(2023, 3, 7);
+
         collapsibleCalendar.setCalendarListener(new CollapsibleCalendar.CalendarListener() {
+            @Override
+            public void onDayChanged() {
+
+            }
+
+            @Override
+            public void onClickListener() {
+
+            }
+
             @Override
             public void onDaySelect() {
                 Day day = collapsibleCalendar.getSelectedDay();
