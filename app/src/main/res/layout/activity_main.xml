@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_star">
 
 
     <ImageView
@@ -13,8 +14,10 @@
         android:layout_height="260dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
     <com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
         android:id="@+id/calendarView"
@@ -24,7 +27,7 @@
         app:buttonRight_drawableTintColor="@android:color/white"
         app:eventColor="@color/yellow_cloud"
         app:expandIconColor="@android:color/white"
-        app:primaryColor="#FAF9F7"
+        app:primaryColor="#FDFCFB"
         app:selectedItem_background="@drawable/circle_white_solid_background"
         app:selectedItem_textColor="@color/teal_700"
         app:showWeek="true"
@@ -37,6 +40,7 @@
         ></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
 
     <androidx.appcompat.widget.Toolbar
+        android:background="@drawable/bg_toolbar"
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -62,7 +66,7 @@
         android:layout_width="72dp"
         android:layout_height="56dp"
         android:layout_gravity="center"
-        android:layout_marginTop="592dp"
+        android:layout_marginTop="616dp"
         android:background="@drawable/btn_cloud"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
