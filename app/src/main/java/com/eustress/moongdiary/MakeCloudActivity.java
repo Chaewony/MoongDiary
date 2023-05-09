@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.slider.Slider;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -40,6 +42,14 @@ public class MakeCloudActivity extends AppCompatActivity {
     Date currentTime = Calendar.getInstance().getTime();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
     String date = dateFormat.format(currentTime);
+
+    // 현재 시간
+    LocalTime now = LocalTime.now();
+    // 포맷 정의하기
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    // 포맷 적용하기
+    String time = now.format(formatter);
+
 
 
     @Override
@@ -148,7 +158,7 @@ public class MakeCloudActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(MakeCloudActivity.this, emotionEdt.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                dbHelper.insert(date, emotionEdt.getText().toString(), selectedCloud, emotionValue);
+                dbHelper.insert(date, time, emotionEdt.getText().toString(), selectedCloud, emotionValue);
 
                 //textView2.setText(dbHelper.getDiary(date));
 
