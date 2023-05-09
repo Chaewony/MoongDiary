@@ -21,23 +21,45 @@
 
     <com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar
         android:id="@+id/calendarView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:buttonLeft_drawableTintColor="@android:color/white"
         app:buttonRight_drawableTintColor="@android:color/white"
         app:eventColor="@color/yellow_cloud"
         app:expandIconColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:primaryColor="#FDFCFB"
         app:selectedItem_background="@drawable/circle_white_solid_background"
         app:selectedItem_textColor="@color/teal_700"
+        app:showTopBar="false"
         app:showWeek="true"
         app:textColor="#46413B"
         app:todayItem_background="@drawable/bg_today"
         app:todayItem_textColor="@android:color/white"
-        tools:ignore="MissingConstraints"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:showTopBar="false"
-        ></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
+        tools:ignore="MissingConstraints"></com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar>
+
+    <ImageView
+        android:id="@+id/calendarView2"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/cg_app_bar"
+        app:layout_constraintTop_toBottomOf="@id/calendarView"
+        tools:ignore="MissingConstraints"></ImageView>
+
+    <ImageView
+        android:id="@+id/calendarView_line"
+        android:layout_width="60dp"
+        android:layout_height="4dp"
+        android:background="@drawable/cg_app_bar_line"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@id/calendarView2"
+        app:layout_constraintEnd_toEndOf="@id/calendarView2"
+        app:layout_constraintStart_toStartOf="@id/calendarView2"
+        app:layout_constraintTop_toTopOf="@id/calendarView2"
+        tools:ignore="MissingConstraints"></ImageView>
 
     <androidx.appcompat.widget.Toolbar
         android:background="@drawable/bg_toolbar"
@@ -46,8 +68,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/toolbarText"
@@ -63,16 +84,15 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/cloudBtn"
-        android:layout_width="72dp"
-        android:layout_height="56dp"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
-        android:layout_marginTop="616dp"
+        android:layout_marginBottom="83dp"
         android:background="@drawable/btn_cloud"
         android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
     </androidx.appcompat.widget.AppCompatButton>
 
