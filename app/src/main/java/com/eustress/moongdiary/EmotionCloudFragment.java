@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -89,22 +90,44 @@ public class EmotionCloudFragment extends Fragment {
 
         //텍스트가 들어갈 텍스트 뷰를 동적 생성 후
         //위에서 만든 리니어 레이아웃에 넣음
-        TextView textViewText = new TextView(getContext());
-        textViewText.setText(text);
-        textViewText.setTextSize(30);
-        textViewText.setTypeface(Typeface.DEFAULT);
+        EditText edtText = new EditText(getContext());
+        edtText.setText(text);
+        edtText.setTextSize(30);
+        edtText.setEnabled(false);
+        edtText.setTypeface(Typeface.DEFAULT);
 
-        textViewText.setLayoutParams(params);
-        newListView.addView(textViewText);
+        edtText.setLayoutParams(params);
+        newListView.addView(edtText);
 
         //버튼을 오른쪽 정렬하기 위한 뷰 생성
         View view = new View(getContext());
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(0, 0,1);
         view.setLayoutParams(param);
         newListView.addView(view);
-        
+
+        //수정 버튼 기능을 할 버튼위젯을 만든 다음
+        //위에서 만든 리니어 레이아웃에 넣음
+        Button editBtn = new Button(getContext());
+        editBtn.setText("수정하기");
+        editBtn.setId(index);
+        editBtn.setLayoutParams(params);
+        newListView.addView(editBtn);
+        //deleteBtn.setOnClickListener(v -> Toast.makeText(getActivity(), time, Toast.LENGTH_SHORT).show());
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //다음 버튼 누르면 일어날 일 처리
+                if(edtText.isEnabled()){
+                    dbHelper.Update(edtText.getText().toString(), date, time);
+                    edtText.setEnabled(false);
+                }
+                else{
+                    edtText.setEnabled(true);
+                }
+            }
+        });
+
         //삭제 버튼 기능을 할 버튼위젯을 만든 다음
-        //위 위에서 만든 리니어 레이아웃에 넣음
+        //위에서 만든 리니어 레이아웃에 넣음
         Button deleteBtn = new Button(getContext());
         deleteBtn.setText("삭제하기");
         deleteBtn.setId(index);

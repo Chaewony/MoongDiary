@@ -42,6 +42,13 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Diary Table 데이터 수정
+    public void Update(String text, String date, String time) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE Diary SET text = '" + text + "' WHERE date = '" + date + "' AND time = '" + time + "' ;");
+        db.close();
+    }
+
     //미완성 코드
     public void Delete(String date, String time) {
         SQLiteDatabase db = getWritableDatabase();
